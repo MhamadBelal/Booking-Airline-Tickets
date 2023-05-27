@@ -1,0 +1,68 @@
+﻿@model AirlineSystem.User
+
+
+@using (Html.BeginForm())
+{
+<table align="center">
+    <tr>
+        <td align="center" colspan="2"> Edit this User [@Model.Name] </td>
+    </tr>
+    @Html.HiddenFor(x => x.UserId)
+    @Html.HiddenFor(x => x.Email)
+    <tr>
+        <td>  @Html.LabelFor(x => x.Name) </td>
+        <td> @Html.EditorFor(x => x.Name)</td>
+        <td>@Html.ValidationMessageFor(x=>x.Name)</td>
+    </tr>
+    <tr>
+        <td> @Html.LabelFor(x => x.Password) </td>
+        <td>  @Html.EditorFor(x => x.Password) </td>
+        <td>@Html.ValidationMessageFor(x=>x.Password)</td>
+    </tr>
+    <tr>
+        <td> @Html.LabelFor(x => x.Age) </td>
+        <td> @Html.EditorFor(x => x.Age)</td>
+        <td>@Html.ValidationMessageFor(x=>x.Age)</td>
+    </tr>
+    <tr>
+        <td>  @Html.LabelFor(x => x.Address) </td>
+        <td> @Html.EditorFor(x => x.Address) </td>
+    </tr>
+    <tr>
+        <td> @Html.LabelFor(x => x.Email) </td>
+        <td> @Html.DisplayFor(x => x.Email) </td>
+    </tr>
+    <tr>
+        <td>  @Html.LabelFor(x => x.PhoneNo) </td>
+        <td> @Html.EditorFor(x => x.PhoneNo) </td>
+        <td>@Html.ValidationMessageFor(x=>x.PhoneNo)</td>
+    </tr>
+    <tr>
+        <td> @Html.LabelFor(x => x.Gender) </td>
+        <td>
+            <select name="Gender" id="Gender">
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other thing</option>
+            </select>
+        </td>
+    </tr>
+    @if (PresentationLayer.Helper.SessionHelper.IsAdmin)
+    {
+        <tr>
+            <td> @Html.LabelFor(x => x.RoleId) </td>
+            <td>
+                @Html.DropDownListFor(x => x.RoleId, ViewBag.Role as SelectList, null, null)
+            </td>
+        </tr>
+    }
+    else
+    {
+        @Html.HiddenFor(x=>x.RoleId)
+    }
+    <tr>
+        <td>   <button type="submit">Save</button> </td>
+    </tr>
+</table>
+
+}

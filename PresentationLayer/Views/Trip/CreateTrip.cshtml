@@ -1,0 +1,56 @@
+﻿@model AirlineSystem.Trip
+
+@using (Html.BeginForm())
+{
+<table align="center">
+    <tr>
+        <td align="center">
+            <h2>Create A Trip</h2>
+        </td>
+    </tr>
+    <tr>
+        <td>   @Html.LabelFor(x => x.TripId) </td>
+        <td>  @Html.EditorFor(x => x.TripId) </td>
+        <td> @Html.ValidationMessageFor(x => x.TripId, "", new { @calss = "text-danger" }) </td>
+    </tr>
+    <tr>
+        <td> @Html.LabelFor(x => x.Acual_depature) </td>
+        <td> <input type="time" name="Acual_depature" id="Acual_depature" /> </td>
+        <td> @Html.ValidationMessageFor(x => x.Acual_depature, "", new { @calss = "text-danger" }) </td>
+    </tr>
+    <tr>
+        <td>  @Html.LabelFor(x => x.Acual_Arrival) </td>
+        <td>  <input type="time" name="Acual_Arrival" id="Acual_Arrival" /> </td>
+        <td> @Html.ValidationMessageFor(x => x.Acual_Arrival, "", new { @calss = "text-danger" }) </td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(x => x.Acual_Duration) </td>
+        <td>   @Html.EditorFor(x => x.Acual_Duration) </td>
+        <td> @Html.ValidationMessageFor(x => x.Acual_Duration, "", new { @calss = "text-danger" }) </td>
+    </tr>
+    <tr>
+        <td> @Html.LabelFor(x => x.Avaliable) </td>
+        <td> @Html.EditorFor(x => x.Avaliable) </td>
+        <td> @Html.ValidationMessageFor(x => x.Avaliable, "", new { calss = "text-danger" }) </td>
+    </tr>
+    <tr>
+        <td> @Html.LabelFor(x => x.Date) </td>
+        <td> <input type="date" name="Date" id="Date" /> </td>
+        <td> @Html.ValidationMessageFor(x => x.Date, "", new { calss = "text-danger" }) </td>
+    </tr>
+    <tr>
+        <td>   @Html.LabelFor(x => x.price) </td>
+        <td> @Html.EditorFor(x => x.price) </td>
+        <td> @Html.ValidationMessageFor(x => x.price, "", new { calss = "text-danger" }) </td>
+    </tr>
+    <tr>
+        <td>  @Html.LabelFor(x => x.TripName) </td>
+        <td>  @Html.DropDownListFor(x => x.TripName, ViewBag.trips as SelectList, null, null) </td>
+    </tr>
+    <tr>
+        <td><button type="submit">Save</button> </td>
+    </tr>
+</table>
+
+}
+

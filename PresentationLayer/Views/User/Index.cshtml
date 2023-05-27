@@ -1,0 +1,70 @@
+﻿@model List<PresentationLayer.Models.AdminUser>
+<h1>User Information</h1>
+
+@if (Model.Count == 0)
+{
+
+    <span>No Items</span>
+    if (PresentationLayer.Helper.SessionHelper.IsAdmin)
+    {
+        <a href="/User/Create" class="btn btn-block"><input type="button" value="Create A User" /></a>
+    }
+
+}
+else
+{
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>User Name</th>
+                <th> Age</th>
+                <th> Address</th>
+                <th> Email</th>
+                <th>Password</th>
+                <th> Number Phone</th>
+                <th>Gender</th>
+                <th>Role Name</th>
+                <th>Edit User</th>
+                @if (PresentationLayer.Helper.SessionHelper.IsAdmin)
+                {
+                    <th>delete</th>
+
+                }
+
+
+            </tr>
+        </thead>
+        @foreach (var i in Model)
+        {
+    <tr>
+        <td>@i.Name</td>
+        <td>@i.Age</td>
+        <td>@i.Address</td>
+        <td>@i.Email</td>
+        <td>@i.Password</td>
+        <td>@i.PhoneNo</td>
+        <td>@i.Gender</td>
+        <td>@i.RoleName</td>
+        <td><a href="@Url.Action("Edit","User",new {id=i.UserId })" class="btn btn-sm btn-success">Edit</a></td>
+        @if (PresentationLayer.Helper.SessionHelper.IsAdmin)
+        {
+            <td>
+
+                <a href="@Url.Action("Delete","User",new { id=i.UserId })" class="btn btn-danger">Delete</a>
+
+            </td>
+        }
+
+    </tr>
+        }
+
+    </table>
+    if (PresentationLayer.Helper.SessionHelper.IsAdmin)
+    {
+        <a href="/User/Create" class="btn btn-block"><input type="button" value="Create A User" /></a>
+    }
+
+
+}
+
+

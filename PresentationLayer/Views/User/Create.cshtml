@@ -1,0 +1,102 @@
+﻿@model AirlineSystem.User
+
+
+@using (Html.BeginForm())
+{
+
+<table align="center">
+    <tr>
+        <td align="center" colspan="2"> <h1>SignUp Form</h1> </td>
+    </tr>
+    <tr>
+        <td> @Html.LabelFor(x => x.Name) </td>
+        <td> @Html.EditorFor(x => x.Name)  </td>
+        <td> @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" }) </td>
+    </tr>
+    <tr>
+        <td>  @Html.LabelFor(x => x.Password) </td>
+        <td> <input type="password" id="Password" name="Password" /> </td>
+        <td> @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" }) </td>
+    </tr>
+
+    <tr>
+        <td> @Html.LabelFor(x => x.Age) </td>
+        <td> @Html.EditorFor(x => x.Age) </td>
+        <td> @Html.ValidationMessageFor(x => x.Age, "", new { @class = "text-danger" }) </td>
+    </tr>
+
+    <tr>
+        <td> @Html.LabelFor(x => x.Address) </td>
+        <td> @Html.EditorFor(x => x.Address) </td>
+        <td> @Html.ValidationMessageFor(x => x.Address, "", new { @class = "text-danger" }) </td>
+    </tr>
+
+    <tr>
+        <td> @Html.LabelFor(x => x.Email) </td>
+        <td>   <input type="email" id="Email" name="Email" /> </td>
+        <td>@ViewBag.Found </td>
+        <td> @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" }) </td>
+    </tr>
+
+    <tr>
+        <td> @Html.LabelFor(x => x.PhoneNo) </td>
+        <td> @Html.EditorFor(x => x.PhoneNo) </td>
+        <td> @Html.ValidationMessageFor(x => x.PhoneNo, "", new { @class = "text-danger" }) </td>
+    </tr>
+
+    <tr>
+        <td> @Html.LabelFor(x => x.Gender) </td>
+        <td>
+            <select name="Gender" id="Gender">
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other thing</option>
+            </select>
+        </td>
+        <td>@Html.ValidationMessageFor(x => x.Gender, "", new { @class = "text-danger" }) </td>
+    </tr>
+    @if (PresentationLayer.Helper.SessionHelper.IsAdmin)
+    {
+        <tr>
+            <td> @Html.LabelFor(x => x.RoleId) </td>
+            <td>
+                @Html.DropDownListFor(x => x.RoleId, ViewBag.Role as SelectList, null, null)
+            </td>
+        </tr>
+    }
+
+    <tr>
+        <td>  <button type="submit">Save</button> </td>
+    </tr>
+</table>
+}
+
+@*<form action="/User/Create" method="post">
+    <div>
+        Name
+        <input id="Name" name="Name" />
+        <br />
+        Password
+        <input type="password" id="Password" name="Password" />
+        <br />
+        Age
+        <input id="Age" name="Age" />
+        <br />
+        Address
+        <input id="Address" name="Address" />
+        <br />
+        Email
+        <input id="Email" name="Email" />
+        <br />
+        Phone Number
+        <input id="PhoneNo" name="PhoneNo" />
+        <br />
+        Gender
+        <input id="Gender" name="Gender" />
+    </div>
+    <div>
+        <button type="submit">Save</button>
+    </div>
+</form>
+    *@
+

@@ -1,0 +1,64 @@
+﻿@model AirlineSystem.Payment
+
+<br />
+@using (Html.BeginForm())
+{
+<table align="center">
+    <tr>
+        <th align="center"><h2>miss/ter [@ViewBag.UserName] Add A Card </h2></th>
+    </tr>
+    <tr>
+        <td>  @Html.LabelFor(x => x.CardId) </td>
+        <td>  @Html.EditorFor(x => x.CardId) </td>
+        <td>  @Html.ValidationMessageFor(x => x.CardId, "", new { @calss = "text-danger" }) </td>
+
+    </tr>
+    <tr>
+        <td> @Html.LabelFor(x => x.Password) </td>
+        <td> @Html.EditorFor(x => x.Password)  </td>
+        <td>  @Html.ValidationMessageFor(x => x.Password, "", new { @calss = "text-danger" }) </td>
+    </tr>
+    <tr>
+        <td> @Html.LabelFor(x => x.NameCard) </td>
+        <td>  @Html.EditorFor(x => x.NameCard)</td>
+        <td>  @Html.ValidationMessageFor(x => x.NameCard, "", new { @calss = "text-danger" }) </td>
+    </tr>
+    <tr>
+        <td>    @Html.LabelFor(x => x.EndDate) </td>
+        <td>  <input type="date" name="EndDate" id="EndDate" /> </td>
+        <td> @Html.ValidationMessageFor(x => x.EndDate, "", new { @calss = "text-danger" }) </td>
+    </tr>
+    <tr>
+        <td>  @Html.LabelFor(x => x.CVV)</td>
+        <td>   @Html.EditorFor(x => x.CVV) </td>
+        <td>  @Html.ValidationMessageFor(x => x.CVV, "", new { calss = "text-danger" }) </td>
+    </tr>
+    @if (PresentationLayer.Helper.SessionHelper.IsAdmin)
+    {
+        <tr>
+            <td>  @Html.LabelFor(x => x.Money)</td>
+            <td>   @Html.EditorFor(x => x.Money) </td>
+            <td>  @Html.ValidationMessageFor(x => x.Money, "", new { calss = "text-danger" }) </td>
+        </tr>
+    }
+    @if (PresentationLayer.Helper.SessionHelper.IsAdmin)
+    {
+        <tr>
+            <td> @Html.LabelFor(x => x.UserId) </td>
+            <td>  @Html.DropDownListFor(x => x.UserId, ViewBag.User as SelectList, null, null) </td>
+        </tr>
+    }
+    else
+    {
+        <tr>
+            <td> @Html.LabelFor(x => x.UserId) </td>
+            <td> @ViewBag.UserName</td>
+        </tr>
+    }
+
+    <tr>
+        <td>   <button type="submit">Save</button> </td>
+    </tr>
+</table>
+    
+}

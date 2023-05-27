@@ -1,0 +1,15 @@
+C:\Users\Lenovo\source\repos\BookingProject\OurMain\bin\Debug\OurMain.exe.config
+C:\Users\Lenovo\source\repos\BookingProject\OurMain\bin\Debug\OurMain.exe
+C:\Users\Lenovo\source\repos\BookingProject\OurMain\bin\Debug\OurMain.pdb
+C:\Users\Lenovo\source\repos\BookingProject\OurMain\bin\Debug\AirlineSystem.dll
+C:\Users\Lenovo\source\repos\BookingProject\OurMain\bin\Debug\EntityFramework.dll
+C:\Users\Lenovo\source\repos\BookingProject\OurMain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Lenovo\source\repos\BookingProject\OurMain\bin\Debug\AirlineSystem.pdb
+C:\Users\Lenovo\source\repos\BookingProject\OurMain\bin\Debug\AirlineSystem.dll.config
+C:\Users\Lenovo\source\repos\BookingProject\OurMain\bin\Debug\EntityFramework.xml
+C:\Users\Lenovo\source\repos\BookingProject\OurMain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Lenovo\source\repos\BookingProject\OurMain\obj\Debug\OurMain.csproj.AssemblyReference.cache
+C:\Users\Lenovo\source\repos\BookingProject\OurMain\obj\Debug\OurMain.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\source\repos\BookingProject\OurMain\obj\Debug\OurMain.csproj.CopyComplete
+C:\Users\Lenovo\source\repos\BookingProject\OurMain\obj\Debug\OurMain.exe
+C:\Users\Lenovo\source\repos\BookingProject\OurMain\obj\Debug\OurMain.pdb

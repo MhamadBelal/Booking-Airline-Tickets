@@ -1,0 +1,96 @@
+﻿@model List<PresentationLayer.Models.UserPayment>
+
+<h2>Payment cards</h2>
+@if (Model.Count == 0)
+{
+
+
+    <span>No Items</span>
+    if (PresentationLayer.Helper.SessionHelper.IsAdmin)
+    {
+        <a href="/Payment/CreatePayment" class="btn btn-block"> <input type="button" value="Create New Card" /></a>
+    }
+    else
+    {
+        <a href="/Payment/AddPayment" class="btn btn-block"> <input type="button" value="Add my Card" /></a>
+    }
+
+
+
+}
+else
+{
+
+    <table class="table table-hover">
+
+
+
+
+
+        <thead>
+            <tr>
+                <td>CardId</td>
+                <td>Password</td>
+                <td>Card Name</td>
+                <td>end Date</td>
+                <td>CVV</td>
+                <td>Money</td>
+                <td>Username</td>
+
+                @if (PresentationLayer.Helper.SessionHelper.IsAdmin)
+                {
+
+
+                <td>Edit or delete</td>
+                }
+                else
+                {
+                    <td>Hide</td>
+                }
+                
+
+            </tr>
+        </thead>
+
+        @foreach (var i in Model)
+        {
+    <tr>
+        <td>@i.cardIdPayment</td>
+        <td>@i.password</td>
+        <td>@i.CardName</td>
+        <td>@i.endDate</td>
+        <td>@i.CVV</td>
+        <td>@i.money</td>
+        <td>@i.username</td>
+
+        @if (PresentationLayer.Helper.SessionHelper.IsAdmin)
+        {
+    <td>
+
+        <a href="@Url.Action("EditPayment", "Payment", new { id = i.cardIdPayment })" class="btn btn-sm btn-success">Edit</a>
+        <a href="@Url.Action("DeletePayment","Payment",new {id=i.cardIdPayment })" class="btn btn-danger">Delete</a>
+    </td>
+
+        }
+        else
+        {
+    <td>  <a href="@Url.Action("HidePayment","Payment",new {id=i.cardIdPayment })" class="btn btn-danger">Hide</a> </td>
+        }
+
+
+    </tr>
+        }
+    </table>
+    if (PresentationLayer.Helper.SessionHelper.IsAdmin)
+    {
+        <a href="/Payment/CreatePayment" class="btn btn-block"> <input type="button" value="Create New Card" /></a>
+    }
+    else
+    {
+        <a href="/Payment/AddPayment" class="btn btn-block"> <input type="button" value="Add my Card" /></a>
+    }
+
+
+
+}
+

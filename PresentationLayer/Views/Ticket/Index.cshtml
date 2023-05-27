@@ -1,0 +1,52 @@
+﻿@model List<PresentationLayer.Models.TUT>
+
+<h2>Tickets cards</h2>
+@if (Model.Count == 0)
+{
+    <span>No Items</span>}
+else
+{
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>TicketID</td>
+                <td>UserName</td>
+                <td>TripID</td>
+                <td>Age of User</td>
+                <td>Phone of User</td>
+                <td>Gender of User</td>
+                <td>Departure Time</td>
+                <td>Arrival Time</td>
+                <td>Duration Time</td>
+                <td>Price of Trip</td>
+                <td>Date</td>
+                    <td>delete</td>
+                
+                
+            </tr>
+        </thead>
+
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.TicketId</td>
+                <td>@i.UserName</td>
+                <td>@i.TripID</td>
+                <td>@i.Age</td>
+                <td>@i.PhoneNo</td>
+                <td>@i.Gender</td>
+                <td>@i.Acual_depature</td>
+                <td>@i.Acual_Arrival</td>
+                <td>@i.Acual_Duration</td>
+                <td>@i.price</td>
+                <td>@i.Date</td>
+                
+            <td>
+                <a href="@Url.Action("DeleteTicket","Ticket",new {id=i.TicketId })" class="btn btn-danger">Delete</a>
+            </td>
+                    
+                
+            </tr>
+        }
+    </table>
+}

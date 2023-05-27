@@ -1,0 +1,49 @@
+﻿@model AirlineSystem.ScheduleTrip
+
+
+@using (Html.BeginForm())
+{
+<table align="center">
+    <tr>
+        <td> <h2>Create Schedule Trip</h2> </td>
+    </tr>
+    <tr>
+        <td> @Html.LabelFor(x => x.TripName) </td>
+        <td>  @Html.EditorFor(x => x.TripName) </td>
+        <td> @Html.ValidationMessageFor(x => x.TripName, "", new { @class = "text-danger" }) </td>
+    </tr>
+    <tr>
+        <td>  @Html.LabelFor(x => x.PlaceFrom) </td>
+        <td>  @Html.EditorFor(x => x.PlaceFrom) </td>
+        <td> @Html.ValidationMessageFor(x => x.PlaceFrom, "", new { @class = "text-danger" }) </td>
+    </tr>
+    <tr>
+        <td>  @Html.LabelFor(x => x.PlaceTo)</td>
+        <td> @Html.EditorFor(x => x.PlaceTo) </td>
+        <td> @Html.ValidationMessageFor(x => x.PlaceTo, "", new { @class = "text-danger" }) </td>
+    </tr>
+    <tr>
+        <td>   @Html.LabelFor(x => x.Depature_Time) </td>
+        <td> <input type="time" name="Depature_Time" id="Depature_Time" /> </td>
+        <td> @Html.ValidationMessageFor(x => x.Depature_Time, "", new { @class = "text-danger" }) </td>
+    </tr>
+    <tr>
+        <td>   @Html.LabelFor(x => x.Arrival_Time) </td>
+        <td>  <input type="time" name="Arrival_Time" id="Arrival_Time" /> </td>
+        <td>@Html.ValidationMessageFor(x => x.Arrival_Time, "", new { @class = "text-danger" })</td>
+    </tr>
+    <tr>
+        <td>    @Html.LabelFor(x => x.Duration) </td>
+        <td> @Html.EditorFor(x=>x.Duration) </td>
+        <td> @Html.ValidationMessageFor(x => x.Duration, "", new { @class = "text-danger" }) </td>
+    </tr>
+    <tr>
+        <td>  @Html.LabelFor(x => x.NoP) </td>
+        <td> @Html.EditorFor(x => x.NoP) </td>
+        <td> @Html.ValidationMessageFor(x => x.NoP, "", new { @class = "text-danger" }) </td>
+    </tr>
+    <tr>
+        <td> <button type="submit">Save</button> </td>
+    </tr>
+</table>
+}

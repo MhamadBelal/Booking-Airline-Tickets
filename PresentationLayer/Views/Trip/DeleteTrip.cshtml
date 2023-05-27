@@ -1,0 +1,14 @@
+﻿@model AirlineSystem.Trip
+
+<div calss="container">
+    <h3>Are you sure You want to delete this Schedule Trip</h3>
+    <div>
+        @Html.DisplayFor(x => x.TripId)
+    </div>
+</div>
+
+@using (Html.BeginForm())
+{
+    <button type="submit" class="btn btn-success">Yes</button>
+    <a class="btn btn-danger" href="/Trip">No</a>
+}

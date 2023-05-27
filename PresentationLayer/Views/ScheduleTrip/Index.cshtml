@@ -1,0 +1,61 @@
+﻿@model List<AirlineSystem.ScheduleTrip>
+<h1>ScheduleTrip</h1>
+
+@if (Model.Count == 0)
+{
+    <span>No Items</span>
+    if (PresentationLayer.Helper.SessionHelper.IsAdmin)
+    {
+        <a href="/ScheduleTrip/CreateScheduleTrip" class="btn btn-block"> <input type="button" value="Create A Schedule Trip" /></a>
+    }
+}
+else
+{
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>Trip Name</td>
+                <td>Place From</td>
+                <td>Place To</td>
+                <td>Depature Time</td>
+                <td>Arrival Time</td>
+                <td>Duration</td>
+                <td>Number of passenger</td>
+
+                @if (PresentationLayer.Helper.SessionHelper.IsAdmin)
+                {
+                    <td>edit or delete</td>
+                }
+
+            </tr>
+        </thead>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.TripName</td>
+                <td>@i.PlaceFrom</td>
+                <td>@i.PlaceTo</td>
+                <td>@i.Depature_Time</td>
+                <td>@i.Arrival_Time</td>
+                <td>@i.Duration</td>
+                <td>@i.NoP</td>
+
+                @if (PresentationLayer.Helper.SessionHelper.IsAdmin)
+                {
+                    <td>
+                        <a href="@Url.Action("EidtScheduleTrip","ScheduleTrip",new {id=i.TripName })" class="btn btn-sm btn-success">Edit</a>
+                        <a href="@Url.Action("DeleteScheduleTrip","ScheduleTrip",new { id=i.TripName })" class="btn btn-danger">Delete</a>
+                    </td>
+                }
+
+
+            </tr>
+
+        }
+
+    </table>
+    if (PresentationLayer.Helper.SessionHelper.IsAdmin)
+    {
+        <a href="/ScheduleTrip/CreateScheduleTrip" class="btn btn-block"> <input type="button" value="Create A Schedule Trip" /></a>
+    }
+}

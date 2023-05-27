@@ -1,0 +1,14 @@
+﻿@model AirlineSystem.Ticket
+
+<div calss="container">
+    <h3>Are you sure You want to delete this Ticket</h3>
+    <div>
+        @Html.DisplayFor(x => x.TicketId)
+    </div>
+</div>
+
+@using (Html.BeginForm())
+{
+    <button type="submit" class="btn btn-success">Yes</button>
+    <a class="btn btn-danger" href="/Ticket">No</a>
+}

@@ -1,0 +1,65 @@
+﻿@model AirlineSystem.Payment
+
+
+@using(Html.BeginForm())
+{
+   
+<table align="center">
+    @Html.HiddenFor(x => x.CardId)
+    <tr>
+        <td colspan="2" align="center"><h2>Edit @Model.CardId <b>Card</b></h2></td>
+    </tr>
+    <tr>
+        <td>  @Html.LabelFor(x => x.NameCard) </td>
+        <td> @Html.EditorFor(x => x.NameCard) </td>
+        <td>@Html.ValidationMessageFor(x => x.NameCard)</td>
+    </tr>
+    <tr>
+        <td>  @Html.LabelFor(x => x.Password) </td>
+        <td>  @Html.EditorFor(x => x.Password) </td>
+        <td>@Html.ValidationMessageFor(x => x.Password)</td>
+    </tr>
+    <tr>
+        <td>  @Html.LabelFor(x => x.EndDate) </td>
+        <td><input type="date" name="EndDate" id="EndDate" /> </td>
+        <td>@Html.ValidationMessageFor(x => x.EndDate)</td>
+    </tr>
+    <tr>
+        <td> @Html.LabelFor(x => x.CVV) </td>
+        <td>  @Html.EditorFor(x => x.CVV) </td>
+        <td>@Html.ValidationMessageFor(x => x.CVV)</td>
+    </tr>
+    @if (PresentationLayer.Helper.SessionHelper.IsAdmin)
+    {
+        <tr>
+            <td>  @Html.LabelFor(x => x.Money)</td>
+            <td>   @Html.EditorFor(x => x.Money) </td>
+            <td>  @Html.ValidationMessageFor(x => x.Money, "", new { calss = "text-danger" }) </td>
+        </tr>
+    }
+    else
+    {
+<tr>
+    <td>  @Html.LabelFor(x => x.Money)</td>
+    <td>   @Html.DisplayFor(x => x.Money) </td>
+</tr>
+    }
+    @if (PresentationLayer.Helper.SessionHelper.IsAdmin)
+    {
+        <tr>
+            <td>  @Html.LabelFor(x => x.UserId) </td>
+            <td> @Html.DropDownListFor(x => x.UserId, ViewBag.User as SelectList, null, null) </td>
+        </tr>
+    }
+    else
+    {
+        <tr>
+            <td>  @Html.LabelFor(x => x.UserId) </td>
+            <td>@ViewBag.UserName</td>
+        </tr>
+    }
+    <tr>
+        <td>   <button type="submit">Save</button> </td>
+    </tr>
+</table>
+}

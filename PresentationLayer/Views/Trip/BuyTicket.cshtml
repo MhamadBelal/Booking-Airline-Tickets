@@ -1,0 +1,29 @@
+﻿@model AirlineSystem.Trip
+<h2>Buy a Ticket</h2>
+
+
+@using (Html.BeginForm())
+{
+
+    @Html.HiddenFor(x => x.TripId)
+
+        <div calss="container">  
+            <h3>@PresentationLayer.Helper.SessionHelper.Fullname Are you sure You want to buy this Ticket</h3>
+            <div>
+                @Html.DisplayFor(x => x.TripId)
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+    <button type="submit" class="btn btn-success">Yes</button>
+    <a class="btn btn-danger" href="/Trip">No</a>
+
+}
+

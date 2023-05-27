@@ -1,0 +1,51 @@
+﻿@model AirlineSystem.Trip
+
+
+
+@using (Html.BeginForm())
+{
+<table align="center">
+    @Html.HiddenFor(x => x.TripId)
+    <tr>
+        <td>  <h2>Eidt this Trip [@Model.TripId]</h2> </td>
+    </tr>
+    <tr>
+        <td>  @Html.LabelFor(x => x.Acual_depature) </td>
+        <td> <input type="time" name="Acual_depature" id="Acual_depature" /> </td>
+        <td>@Html.ValidationMessageFor(x=>x.Acual_depature)</td>
+    </tr>
+    <tr>
+        <td>   @Html.LabelFor(x => x.Acual_Arrival) </td>
+        <td> <input type="time" name="Acual_Arrival" id="Acual_Arrival" /> </td>
+        <td>@Html.ValidationMessageFor(x => x.Acual_Arrival)</td>
+    </tr>
+    <tr>
+        <td> @Html.LabelFor(x => x.Acual_Duration) </td>
+        <td>@Html.EditorFor(x => x.Acual_Duration) </td>
+        <td>@Html.ValidationMessageFor(x => x.Acual_Duration)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(x => x.Avaliable) </td>
+        <td>@Html.EditorFor(x => x.Avaliable) </td>
+        <td>@Html.ValidationMessageFor(x => x.Avaliable)</td>
+    </tr>
+    <tr>
+        <td> @Html.LabelFor(x => x.Date) </td>
+        <td><input type="date" name="Date" id="Date" /> </td>
+        <td>@Html.ValidationMessageFor(x => x.Date)</td>
+    </tr>
+    <tr>
+        <td>  @Html.LabelFor(x => x.price) </td>
+        <td> @Html.EditorFor(x => x.price)</td>
+        <td>@Html.ValidationMessageFor(x => x.price)</td>
+    </tr>
+    <tr>
+        <td> @Html.LabelFor(x => x.TripName) </td>
+        <td> @Html.DropDownListFor(x => x.TripName, ViewBag.trips as SelectList, null, null) </td>
+    </tr>
+    <tr>
+        <td>   <button type="submit">Save</button> </td>
+    </tr>
+    
+</table>
+}
